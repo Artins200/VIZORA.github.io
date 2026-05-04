@@ -1,0 +1,2811 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIZORA — Профессиональное оформление объявлений о недвижимости</title>
+    <meta name="description" content="VIZORA — превращаем ваше объявление о недвижимости в продающий визуал. Профессиональные фото, видео и тексты, которые продают быстрее и дороже. Пакеты от 1000₽.">
+    <meta name="keywords" content="оформление объявления недвижимость, фото квартиры для продажи, продать квартиру быстро, риэлтор фотограф, текст объявления продажа квартиры, визора, vizora, профессиональные фото недвижимость">
+    <meta name="google-site-verification" content="_2tqVBGbCaS8_JTJPkAKBOz2qfT7FskguJNe4me-5xE" />
+    <meta property="og:title" content="VIZORA — Ваша недвижимость в лучшем свете">
+    <meta property="og:description" content="Профессиональное фото, видео и текстовое оформление объявлений. Продавайте быстрее и дороже.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CSS VARIABLES & THEMES
+           ============================================ */
+        :root {
+            --bg: #F9F7F3;
+            --bg2: #F0EDE6;
+            --bg3: #E6E2D9;
+            --surface: #FFFFFF;
+            --surface2: rgba(255, 255, 255, 0.75);
+            --text: #1C1814;
+            --text2: #4E4640;
+            --text3: #8A8076;
+            --accent: #C8934A;
+            --accent2: #A67838;
+            --accent-rgb: 200, 147, 74;
+            --accent-light: rgba(var(--accent-rgb), 0.1);
+            --border: rgba(0, 0, 0, 0.08);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.05);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.16);
+            --radius-sm: 10px;
+            --radius: 18px;
+            --radius-lg: 28px;
+            --radius-xl: 36px;
+            --transition-fast: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-slow: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #12100D;
+            --bg2: #1A1712;
+            --bg3: #25211A;
+            --surface: #1E1B16;
+            --surface2: rgba(30, 27, 22, 0.8);
+            --text: #F4F0E8;
+            --text2: #C4BDB3;
+            --text3: #8A7E72;
+            --accent: #D8A960;
+            --accent2: #ECC078;
+            --accent-rgb: 216, 169, 96;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-light: rgba(255, 255, 255, 0.04);
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.25);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
+            --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.55);
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            transition: background var(--transition), color var(--transition);
+            overflow-x: hidden;
+            line-height: 1.65;
+            letter-spacing: -0.01em;
+            min-height: 100vh;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        ::selection {
+            background: rgba(var(--accent-rgb), 0.25);
+            color: var(--text);
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        .display {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+        }
+        .display-lg {
+            font-size: clamp(3.2rem, 7.5vw, 7rem);
+            font-weight: 300;
+        }
+        .display-md {
+            font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+            font-weight: 400;
+        }
+        .display-sm {
+            font-size: clamp(1.7rem, 3.2vw, 3.2rem);
+        }
+        .label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: inline-block;
+        }
+        .body-lg {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text2);
+        }
+        .body-md {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text2);
+        }
+        .body-sm {
+            font-size: 0.83rem;
+            line-height: 1.6;
+            color: var(--text3);
+        }
+        em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* ============================================
+           LAYOUT
+           ============================================ */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+        .section {
+            padding: clamp(80px, 10vw, 140px) 0;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 100px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(var(--accent-rgb), 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+        .btn-ghost {
+            border: 1.5px solid var(--border);
+            color: var(--text);
+            background: transparent;
+        }
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        .btn-ghost-light {
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            background: transparent;
+            backdrop-filter: blur(4px);
+        }
+        .btn-ghost-light:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .btn-arrow {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-fast);
+        }
+        .btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ============================================
+           NAV
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition);
+            background: transparent;
+        }
+        nav.scrolled {
+            background: var(--surface2);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: var(--shadow-sm);
+            height: 68px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        [data-theme="dark"] nav.scrolled {
+            background: rgba(18, 16, 13, 0.85);
+        }
+        .nav-inner {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--text);
+            transition: color var(--transition);
+            flex-shrink: 0;
+        }
+        .nav-logo span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text2);
+            transition: color var(--transition-fast);
+            position: relative;
+            padding: 4px 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 1.5px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-fast);
+        }
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+        .theme-toggle {
+            width: 50px;
+            height: 28px;
+            background: var(--bg3);
+            border-radius: 100px;
+            position: relative;
+            transition: background var(--transition);
+            border: 1.5px solid var(--border);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: transform var(--transition), background var(--transition);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme="dark"] .theme-toggle::after {
+            transform: translateX(22px);
+        }
+        .nav-cta {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        .nav-cta:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.35);
+        }
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .nav-burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 3px;
+            transition: all var(--transition-fast);
+            transform-origin: center;
+        }
+        .nav-burger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .nav-burger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .nav-burger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 999;
+            padding: 100px clamp(20px, 5vw, 60px) 40px;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition);
+        }
+        .mobile-menu.open {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-menu a {
+            font-size: 1.6rem;
+            font-family: var(--font-display);
+            font-weight: 400;
+            color: var(--text);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: color var(--transition-fast);
+        }
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+        .mobile-menu .btn-primary {
+            margin-top: 16px;
+            width: fit-content;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: clamp(60px, 8vw, 100px);
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+        }
+        .hero-bg-img {
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-bg-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5) saturate(0.75);
+            transition: filter var(--transition-slow), transform 8s ease;
+            transform: scale(1.03);
+        }
+        .hero:hover .hero-bg-img img {
+            transform: scale(1.08);
+        }
+        [data-theme="dark"] .hero-bg-img img {
+            filter: brightness(0.3) saturate(0.6);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.05) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+            width: 100%;
+        }
+        .hero-label {
+            margin-bottom: 16px;
+        }
+        .hero-label .label {
+            color: #D8A960;
+            font-size: 0.68rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 14px;
+            border-radius: 100px;
+            backdrop-filter: blur(8px);
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(2.8rem, 6.5vw, 6.8rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero-title em {
+            font-style: italic;
+            color: #D8A960;
+        }
+        .hero-desc {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+            font-weight: 400;
+            max-width: 540px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: clamp(20px, 3vw, 48px);
+            padding-top: 36px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            flex-wrap: wrap;
+        }
+        .hero-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #D8A960;
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            width: 32px;
+            height: 52px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+        .hero-scroll-indicator::after {
+            content: '';
+            width: 3px;
+            height: 10px;
+            background: #fff;
+            border-radius: 3px;
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 0.3;
+                transform: translateY(12px);
+            }
+        }
+
+        /* ============================================
+           TICKER
+           ============================================ */
+        .intro-band {
+            background: var(--accent);
+            padding: 18px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 3;
+        }
+        .ticker-track {
+            display: flex;
+            gap: 56px;
+            animation: ticker 22s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+        .ticker-item {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+        .ticker-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        @keyframes ticker {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ============================================
+           ABOUT
+           ============================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 90px);
+            align-items: center;
+        }
+        .about-visual {
+            position: relative;
+            height: 520px;
+            min-height: 400px;
+        }
+        .about-img-main {
+            width: 78%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            transition: transform var(--transition-slow);
+        }
+        .about-visual:hover .about-img-main {
+            transform: scale(1.02);
+        }
+        .about-img-accent {
+            position: absolute;
+            bottom: -36px;
+            right: 0;
+            width: 52%;
+            height: 50%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 5px solid var(--bg);
+            transition: transform var(--transition-slow);
+        }
+        .about-visual:hover .about-img-accent {
+            transform: translateY(-6px);
+        }
+        .about-badge {
+            position: absolute;
+            top: 32px;
+            right: -12px;
+            background: var(--accent);
+            color: #fff;
+            padding: 16px 22px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            z-index: 2;
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+        @keyframes floatBadge {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .about-badge-num {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .about-badge-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        .about-text .label {
+            margin-bottom: 14px;
+        }
+        .about-text h2 {
+            margin-bottom: 22px;
+        }
+        .about-text>p {
+            margin-bottom: 18px;
+        }
+        .about-points {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .about-point {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 18px 22px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all var(--transition-fast);
+            cursor: default;
+        }
+        .about-point:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+        .about-point-icon {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            background: var(--accent-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background var(--transition-fast);
+        }
+        .about-point:hover .about-point-icon {
+            background: rgba(var(--accent-rgb), 0.2);
+        }
+        .about-point-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+        .about-point-text {
+            font-size: 0.82rem;
+            color: var(--text3);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           COMPARISON SECTION
+           ============================================ */
+        .comparison-section {
+            background: var(--bg2);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header .label {
+            margin-bottom: 10px;
+        }
+        .section-header h2 {
+            margin-bottom: 14px;
+        }
+        .section-header p {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .comparisons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .comparison-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--surface);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .comparison-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .comparison-card-title {
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .comp-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+        }
+        .comp-badge.before {
+            background: rgba(180, 120, 90, 0.15);
+            color: #B07858;
+        }
+        .comp-badge.after {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        [data-theme="dark"] .comp-badge.before {
+            color: #D4A080;
+        }
+        .comparison-wrapper {
+            position: relative;
+            overflow: hidden;
+            cursor: ew-resize;
+            user-select: none;
+            -webkit-user-select: none;
+            aspect-ratio: 4/3;
+            touch-action: pan-y;
+        }
+        .comp-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        .comp-img.after {
+            clip-path: inset(0 50% 0 0);
+            will-change: clip-path;
+        }
+        .comp-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            background: #fff;
+            z-index: 10;
+            pointer-events: none;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+            will-change: left;
+        }
+        .comp-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            will-change: left;
+            transition: width 0.15s, height 0.15s;
+        }
+        .comparison-wrapper:active .comp-handle {
+            width: 56px;
+            height: 56px;
+        }
+        .comp-handle-arrows {
+            font-size: 0.85rem;
+            color: #555;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .comp-labels {
+            position: absolute;
+            bottom: 14px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 18px;
+            pointer-events: none;
+            z-index: 12;
+        }
+        .comp-label-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .comp-label-badge.b {
+            background: rgba(0, 0, 0, 0.55);
+            color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+        }
+        .comp-label-badge.a {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.4);
+        }
+        .comp-hint {
+            text-align: center;
+            padding: 11px;
+            font-size: 0.74rem;
+            color: var(--text3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        /* ============================================
+           PACKAGES
+           ============================================ */
+        .packages-section {
+            background: var(--bg);
+            position: relative;
+        }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 22px;
+            margin-top: 8px;
+            align-items: stretch;
+        }
+        .pkg-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 38px 34px;
+            border: 1.5px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+        .pkg-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(var(--accent-rgb), 0.3);
+        }
+        .pkg-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(160deg, var(--surface) 0%, rgba(var(--accent-rgb), 0.04) 60%, rgba(var(--accent-rgb), 0.1) 100%);
+            box-shadow: var(--shadow-lg);
+        }
+        .pkg-card.featured:hover {
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent2);
+        }
+        .pkg-featured-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 100px;
+            box-shadow: 0 2px 10px rgba(var(--accent-rgb), 0.4);
+        }
+        .pkg-name-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+        .pkg-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .pkg-price {
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .pkg-price-num {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+        }
+        .pkg-price-cur {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .pkg-price-sub {
+            font-size: 0.8rem;
+            color: var(--text3);
+            margin-left: 2px;
+        }
+        .pkg-tagline {
+            font-size: 0.86rem;
+            color: var(--text2);
+            margin-bottom: 26px;
+            line-height: 1.55;
+        }
+        .pkg-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 22px;
+        }
+        .pkg-features {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            flex: 1;
+        }
+        .pkg-feature {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 0.85rem;
+            color: var(--text2);
+            line-height: 1.45;
+        }
+        .pkg-check {
+            color: var(--accent);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-weight: 700;
+        }
+        .pkg-cross {
+            color: var(--text3);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+            opacity: 0.5;
+        }
+        .pkg-cta {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            letter-spacing: -0.01em;
+        }
+        .pkg-card.featured .pkg-cta {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.3);
+        }
+        .pkg-card.featured .pkg-cta:hover {
+            background: var(--accent2);
+            box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.45);
+            transform: translateY(-2px);
+        }
+        .pkg-card:not(.featured) .pkg-cta {
+            border: 1.5px solid var(--border);
+            color: var(--text);
+        }
+        .pkg-card:not(.featured) .pkg-cta:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        .pkg-savings {
+            text-align: center;
+            margin-top: 44px;
+            padding: 28px 32px;
+            background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.07), rgba(var(--accent-rgb), 0.02));
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(var(--accent-rgb), 0.18);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .pkg-savings:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        .pkg-savings p {
+            font-size: 0.98rem;
+            color: var(--text2);
+            line-height: 1.65;
+        }
+        .pkg-savings strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           PROCESS
+           ============================================ */
+        .process-section {
+            background: var(--bg2);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 8%;
+            right: 8%;
+            height: 1.5px;
+            background: var(--border);
+            z-index: 0;
+            border-radius: 2px;
+        }
+        .process-step {
+            text-align: center;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+            transition: transform var(--transition-fast);
+        }
+        .process-step:hover {
+            transform: translateY(-6px);
+        }
+        .process-num-wrap {
+            width: 68px;
+            height: 68px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            transition: all var(--transition-fast);
+            position: relative;
+            z-index: 1;
+        }
+        .process-step:hover .process-num-wrap {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 8px 28px rgba(var(--accent-rgb), 0.4);
+            transform: scale(1.08);
+        }
+        .process-step h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .process-step p {
+            font-size: 0.82rem;
+            color: var(--text2);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           WHY US
+           ============================================ */
+        .why-section {
+            background: var(--surface);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 90px);
+            align-items: center;
+        }
+        .why-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .why-card {
+            background: var(--bg2);
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            transition: all var(--transition-fast);
+            cursor: default;
+            border: 1px solid transparent;
+        }
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--border);
+        }
+        .why-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            display: block;
+            transition: transform var(--transition-fast);
+        }
+        .why-card:hover .why-card-icon {
+            transform: scale(1.15);
+        }
+        .why-card h4 {
+            font-size: 0.93rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .why-card p {
+            font-size: 0.81rem;
+            color: var(--text3);
+            line-height: 1.55;
+        }
+        .why-card.accent {
+            background: var(--accent);
+            grid-column: span 2;
+            border: none;
+        }
+        .why-card.accent:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .why-card.accent h4,
+        .why-card.accent p {
+            color: #fff;
+        }
+        .why-card.accent h4 {
+            font-size: 1.05rem;
+        }
+        .why-card.accent p {
+            opacity: 0.9;
+            font-size: 0.88rem;
+        }
+        .why-text .label {
+            margin-bottom: 14px;
+        }
+        .why-text h2 {
+            margin-bottom: 22px;
+        }
+        .why-text>p {
+            margin-bottom: 18px;
+        }
+        .why-number-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 30px;
+        }
+        .why-number {
+            transition: transform var(--transition-fast);
+        }
+        .why-number:hover {
+            transform: translateY(-3px);
+        }
+        .why-number h3 {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 5px;
+            letter-spacing: -0.02em;
+        }
+        .why-number p {
+            font-size: 0.81rem;
+            color: var(--text3);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           GALLERY
+           ============================================ */
+        .gallery-section {
+            background: var(--bg);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            aspect-ratio: 4/3;
+        }
+        .gallery-item:nth-child(1) img {
+            aspect-ratio: 16/10;
+        }
+        .gallery-item:nth-child(4) img {
+            aspect-ratio: 16/7;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            pointer-events: none;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        .gallery-item-label {
+            font-size: 0.78rem;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+        .gallery-expand-icon {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            pointer-events: none;
+        }
+        .gallery-item:hover .gallery-expand-icon {
+            opacity: 1;
+        }
+
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials-section {
+            background: var(--bg2);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .testi-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 30px 26px;
+            border: 1.5px solid var(--border);
+            transition: all var(--transition-fast);
+        }
+        .testi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(var(--accent-rgb), 0.2);
+        }
+        .testi-stars {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+            letter-spacing: 3px;
+        }
+        .testi-text {
+            font-size: 0.88rem;
+            color: var(--text2);
+            line-height: 1.7;
+            margin-bottom: 22px;
+            font-style: italic;
+            position: relative;
+            padding-left: 16px;
+            border-left: 2px solid var(--accent-light);
+        }
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testi-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        .testi-author-name {
+            font-weight: 600;
+            font-size: 0.86rem;
+        }
+        .testi-author-meta {
+            font-size: 0.74rem;
+            color: var(--text3);
+        }
+
+        /* ============================================
+           FAQ
+           ============================================ */
+        .faq-section {
+            background: var(--bg);
+        }
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: clamp(40px, 6vw, 90px);
+            align-items: start;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.94rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: color var(--transition-fast);
+            letter-spacing: -0.01em;
+        }
+        .faq-question:hover {
+            color: var(--accent);
+        }
+        .faq-arrow {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all var(--transition);
+            color: var(--text3);
+            line-height: 1;
+        }
+        .faq-item.open .faq-arrow {
+            transform: rotate(45deg);
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.4s;
+            font-size: 0.86rem;
+            color: var(--text2);
+            line-height: 1.7;
+            padding: 0;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 280px;
+            padding-bottom: 18px;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            background: #181410;
+            padding: 120px clamp(20px, 5vw, 60px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        [data-theme="dark"] .cta-section {
+            background: #0D0B09;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.08) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+            font-weight: 300;
+            line-height: 1.08;
+            color: #F4F0E8;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section h2 em {
+            font-style: italic;
+            color: #D8A960;
+        }
+        .cta-section p {
+            font-size: 1rem;
+            color: rgba(244, 240, 232, 0.6);
+            margin-bottom: 38px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-cta {
+            background: #D8A960;
+            color: #181410;
+            padding: 16px 38px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all var(--transition-fast);
+            letter-spacing: -0.01em;
+        }
+        .btn-cta:hover {
+            background: #ECC078;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(216, 169, 96, 0.35);
+        }
+        .btn-cta-outline {
+            border: 1.5px solid rgba(244, 240, 232, 0.3);
+            color: rgba(244, 240, 232, 0.85);
+            padding: 15px 34px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            letter-spacing: -0.01em;
+        }
+        .btn-cta-outline:hover {
+            background: rgba(244, 240, 232, 0.08);
+            border-color: rgba(244, 240, 232, 0.6);
+            transform: translateY(-3px);
+        }
+        .cta-deco {
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 18vw;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.015);
+            bottom: -0.05em;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            letter-spacing: 0.03em;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--bg2);
+            padding: 60px clamp(20px, 5vw, 60px) 28px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 44px;
+            margin-bottom: 50px;
+        }
+        .footer-brand .nav-logo {
+            font-size: 1.7rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .footer-brand p {
+            font-size: 0.84rem;
+            color: var(--text3);
+            line-height: 1.7;
+            max-width: 260px;
+        }
+        .footer-col h5 {
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text3);
+            margin-bottom: 18px;
+        }
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-col ul li a {
+            font-size: 0.86rem;
+            color: var(--text2);
+            transition: color var(--transition-fast);
+        }
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .footer-bottom p {
+            font-size: 0.78rem;
+            color: var(--text3);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-social-link {
+            width: 38px;
+            height: 38px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+        }
+        .footer-social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           SCROLL REVEAL
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.12s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.24s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.36s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.48s;
+        }
+
+        /* ============================================
+           LIGHTBOX
+           ============================================ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.94);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 90vw;
+            max-height: 85vh;
+        }
+        .lightbox img {
+            max-width: 85vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            cursor: default;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .lightbox-nav {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ============================================
+           CURSOR GLOW (desktop only)
+           ============================================ */
+        @media (hover: hover) and (pointer: fine) {
+            .cursor-glow {
+                position: fixed;
+                pointer-events: none;
+                z-index: 9998;
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(var(--accent-rgb), 0.06) 0%, transparent 70%);
+                transform: translate(-50%, -50%);
+                transition: opacity 0.3s;
+                opacity: 0;
+            }
+            .cursor-glow.visible {
+                opacity: 1;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1100px) {
+            .about-grid,
+            .why-grid,
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+            .about-visual {
+                height: 380px;
+            }
+            .about-img-accent {
+                display: none;
+            }
+            .about-badge {
+                right: 16px;
+                top: 16px;
+            }
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .comparisons-grid {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin: 0 auto;
+            }
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+            .process-steps::before {
+                display: none;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 550px;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+            }
+            .gallery-item:nth-child(4) {
+                grid-column: span 2;
+            }
+            .why-cards {
+                grid-template-columns: 1fr;
+            }
+            .why-card.accent {
+                grid-column: span 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            .hero-bg {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-bg-img:last-child {
+                display: none;
+            }
+            .hero-stats {
+                gap: 18px;
+            }
+            .hero-stat-num {
+                font-size: 1.8rem;
+            }
+            .nav-links,
+            .nav-cta.desktop-only {
+                display: none;
+            }
+            .nav-burger {
+                display: flex;
+            }
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-col:not(:first-child) {
+                display: none;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) {
+                grid-column: span 1;
+            }
+            .why-number-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-scroll-indicator {
+                display: none;
+            }
+            .lightbox-nav {
+                width: 34px;
+                height: 34px;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-bg {
+                grid-template-columns: 1fr;
+            }
+            .hero-bg-img:not(:first-child) {
+                display: none;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .why-cards {
+                grid-template-columns: 1fr;
+            }
+            .about-visual {
+                height: 280px;
+            }
+            .comparison-wrapper {
+                aspect-ratio: 1/1;
+            }
+            .gallery-item:nth-child(1) img {
+                aspect-ratio: 4/3;
+            }
+            .gallery-item:nth-child(4) img {
+                aspect-ratio: 4/3;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cursor glow (desktop) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- NAV -->
+    <nav id="mainNav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">VIZ<span>ORA</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#results">Результаты</a></li>
+                <li><a href="#packages">Пакеты</a></li>
+                <li><a href="#why">Преимущества</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления"></button>
+                <a href="#cta" class="nav-cta desktop-only">Оставить заявку</a>
+                <button class="nav-burger" id="navBurger" aria-label="Открыть меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMobile()">О нас</a>
+        <a href="#results" onclick="closeMobile()">Результаты</a>
+        <a href="#packages" onclick="closeMobile()">Пакеты</a>
+        <a href="#why" onclick="closeMobile()">Преимущества</a>
+        <a href="#faq" onclick="closeMobile()">FAQ</a>
+        <a href="#cta" class="btn btn-primary" onclick="closeMobile()">Оставить заявку</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-img"><img src="after1.jpg" alt="Ванная комната — пример нашей работы"></div>
+            <div class="hero-bg-img"><img src="after2.jpg" alt="Гостиная — пример нашей работы"></div>
+            <div class="hero-bg-img"><img src="after5.jpg" alt="Спальня — пример нашей работы"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-label"><span class="label">Профессиональное оформление объявлений</span></div>
+            <h1 class="hero-title">
+                Ваша квартира<br>
+                заслуживает<br>
+                <em>лучшего</em>
+            </h1>
+            <p class="hero-desc">
+                Превращаем обычные фото вашего жилья в визуал, который продаёт. Профессиональные фото, видео и тексты — всё для быстрой и выгодной продажи.
+            </p>
+            <div class="hero-actions">
+                <a href="#packages" class="btn btn-primary">
+                    Смотреть пакеты
+                    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#results" class="btn btn-ghost-light">Смотреть результаты</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-num">3×</div>
+                    <div class="hero-stat-label">Больше откликов<br>на объявление</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">47%</div>
+                    <div class="hero-stat-label">Быстрее закрываются<br>сделки</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">200+</div>
+                    <div class="hero-stat-label">Успешных объявлений<br>оформлено</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">от 1000₽</div>
+                    <div class="hero-stat-label">Стоимость пакета<br>начинается</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true"></div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="intro-band">
+        <div class="ticker-track" id="ticker">
+            <div class="ticker-item">Профессиональное фото <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Продающие тексты <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Видеосъёмка <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Быстрый результат <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Больше просмотров <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Выгодная цена <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Профессиональное фото <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Продающие тексты <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Видеосъёмка <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Быстрый результат <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Больше просмотров <span class="ticker-dot"></span></div>
+            <div class="ticker-item">Выгодная цена <span class="ticker-dot"></span></div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual reveal">
+                    <img src="after3.jpg" alt="Прихожая — светлое и просторное помещение" class="about-img-main" loading="lazy">
+                    <img src="after4.jpg" alt="Коридор — уютный интерьер" class="about-img-accent" loading="lazy">
+                    <div class="about-badge">
+                        <div class="about-badge-num">2+</div>
+                        <div class="about-badge-label">года опыта</div>
+                    </div>
+                </div>
+                <div class="about-text reveal reveal-delay-2">
+                    <p class="label">Кто мы такие</p>
+                    <h2 class="display display-md">Мы делаем<br><em>недвижимость</em><br>привлекательной</h2>
+                    <p class="body-lg">VIZORA — это команда профессионалов, которая знает, как сделать ваше объявление заметным среди тысяч других. Мы работаем с продавцами, риэлторами и застройщиками.</p>
+                    <p class="body-md">Первое впечатление решает всё. Покупатели просматривают объявления за секунды — и уходят, если фото плохие или текст скучный. Мы меняем это.</p>
+                    <div class="about-points">
+                        <div class="about-point">
+                            <div class="about-point-icon">📸</div>
+                            <div>
+                                <div class="about-point-title">Профессиональная съёмка</div>
+                                <div class="about-point-text">Снимаем с правильного ракурса, при нужном свете. Каждая комната выглядит просторней и уютней.</div>
+                            </div>
+                        </div>
+                        <div class="about-point">
+                            <div class="about-point-icon">✍️</div>
+                            <div>
+                                <div class="about-point-title">Продающие тексты</div>
+                                <div class="about-point-text">Описание, которое цепляет с первых строк и отвечает на вопросы покупателя до того, как он их задаст.</div>
+                            </div>
+                        </div>
+                        <div class="about-point">
+                            <div class="about-point-icon">🎬</div>
+                            <div>
+                                <div class="about-point-title">Видеопрезентация</div>
+                                <div class="about-point-text">Короткий динамичный ролик, который показывает атмосферу квартиры и удерживает внимание.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="section comparison-section" id="results">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="label">Результаты нашей работы</p>
+                <h2 class="display display-md">До и<br><em>после</em></h2>
+                <p class="body-md">Перетащите ползунок, чтобы увидеть разницу. Это реальные фото — просто другой подход.</p>
+            </div>
+            <div class="comparisons-grid">
+                <!-- Card 1: Санузел -->
+                <div class="comparison-card reveal">
+                    <div class="comparison-card-title">
+                        <span>Санузел</span>
+                        <span class="comp-badge before">Было</span>
+                        <svg width="18" height="4" viewBox="0 0 18 4" aria-hidden="true"><path d="M0 2h18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+                        <span class="comp-badge after">Стало</span>
+                    </div>
+                    <div class="comparison-wrapper" data-comp>
+                        <img src="before5.jpg" alt="Ванная комната до обработки" class="comp-img before" draggable="false">
+                        <img src="after1.jpg" alt="Ванная комната после обработки" class="comp-img after" draggable="false">
+                        <div class="comp-divider"></div>
+                        <div class="comp-handle"><span class="comp-handle-arrows">↔</span></div>
+                        <div class="comp-labels">
+                            <span class="comp-label-badge b">До</span>
+                            <span class="comp-label-badge a">После</span>
+                        </div>
+                    </div>
+                    <div class="comp-hint">↔ Перетащите, чтобы сравнить ↔</div>
+                </div>
+                <!-- Card 2: Гостиная -->
+                <div class="comparison-card reveal reveal-delay-2">
+                    <div class="comparison-card-title">
+                        <span>Гостиная</span>
+                        <span class="comp-badge before">Было</span>
+                        <svg width="18" height="4" viewBox="0 0 18 4" aria-hidden="true"><path d="M0 2h18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+                        <span class="comp-badge after">Стало</span>
+                    </div>
+                    <div class="comparison-wrapper" data-comp>
+                        <img src="before4.jpg" alt="Гостиная до обработки" class="comp-img before" draggable="false">
+                        <img src="after2.jpg" alt="Гостиная после обработки" class="comp-img after" draggable="false">
+                        <div class="comp-divider"></div>
+                        <div class="comp-handle"><span class="comp-handle-arrows">↔</span></div>
+                        <div class="comp-labels">
+                            <span class="comp-label-badge b">До</span>
+                            <span class="comp-label-badge a">После</span>
+                        </div>
+                    </div>
+                    <div class="comp-hint">↔ Перетащите, чтобы сравнить ↔</div>
+                </div>
+                <!-- Card 3: Спальня -->
+                <div class="comparison-card reveal">
+                    <div class="comparison-card-title">
+                        <span>Спальня</span>
+                        <span class="comp-badge before">Было</span>
+                        <svg width="18" height="4" viewBox="0 0 18 4" aria-hidden="true"><path d="M0 2h18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+                        <span class="comp-badge after">Стало</span>
+                    </div>
+                    <div class="comparison-wrapper" data-comp>
+                        <img src="before2.jpg" alt="Спальня до обработки" class="comp-img before" draggable="false">
+                        <img src="after5.jpg" alt="Спальня после обработки" class="comp-img after" draggable="false">
+                        <div class="comp-divider"></div>
+                        <div class="comp-handle"><span class="comp-handle-arrows">↔</span></div>
+                        <div class="comp-labels">
+                            <span class="comp-label-badge b">До</span>
+                            <span class="comp-label-badge a">После</span>
+                        </div>
+                    </div>
+                    <div class="comp-hint">↔ Перетащите, чтобы сравнить ↔</div>
+                </div>
+                <!-- Card 4: Туалет -->
+                <div class="comparison-card reveal reveal-delay-2">
+                    <div class="comparison-card-title">
+                        <span>Туалет</span>
+                        <span class="comp-badge before">Было</span>
+                        <svg width="18" height="4" viewBox="0 0 18 4" aria-hidden="true"><path d="M0 2h18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+                        <span class="comp-badge after">Стало</span>
+                    </div>
+                    <div class="comparison-wrapper" data-comp>
+                        <img src="before1.jpg" alt="Туалет до обработки" class="comp-img before" draggable="false">
+                        <img src="after6.jpg" alt="Туалет после обработки" class="comp-img after" draggable="false">
+                        <div class="comp-divider"></div>
+                        <div class="comp-handle"><span class="comp-handle-arrows">↔</span></div>
+                        <div class="comp-labels">
+                            <span class="comp-label-badge b">До</span>
+                            <span class="comp-label-badge a">После</span>
+                        </div>
+                    </div>
+                    <div class="comp-hint">↔ Перетащите, чтобы сравнить ↔</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="section packages-section" id="packages">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="label">Выберите свой формат</p>
+                <h2 class="display display-md">Наши <em>пакеты</em></h2>
+                <p class="body-md">Три варианта оформления под любой запрос и бюджет. Платите только за то, что нужно.</p>
+            </div>
+            <div class="packages-grid">
+                <!-- Basic -->
+                <div class="pkg-card reveal">
+                    <div class="pkg-name-label">Базовый</div>
+                    <div class="pkg-name">Базовый</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">1&nbsp;000</span>
+                        <span class="pkg-price-cur">₽</span>
+                        <span class="pkg-price-sub">/ объявление</span>
+                    </div>
+                    <p class="pkg-tagline">Когда нужно быстро и без лишнего — цепляющий текст, который работает.</p>
+                    <div class="pkg-divider"></div>
+                    <div class="pkg-features">
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Продающий текст объявления</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Заголовок и описание под платформу</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Ключевые преимущества объекта</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Срок выполнения — 24 часа</span></div>
+                        <div class="pkg-feature"><span class="pkg-cross">✗</span><span style="color:var(--text3)">Фотосъёмка</span></div>
+                        <div class="pkg-feature"><span class="pkg-cross">✗</span><span style="color:var(--text3)">Видеоролик</span></div>
+                        <div class="pkg-feature"><span class="pkg-cross">✗</span><span style="color:var(--text3)">Постобработка фото</span></div>
+                    </div>
+                    <a href="#cta" class="pkg-cta">Выбрать базовый</a>
+                </div>
+                <!-- Main (featured) -->
+                <div class="pkg-card featured reveal reveal-delay-2">
+                    <div class="pkg-featured-badge">Популярный</div>
+                    <div class="pkg-name-label">Основной</div>
+                    <div class="pkg-name">Основной</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">3&nbsp;000</span>
+                        <span class="pkg-price-cur">₽</span>
+                        <span class="pkg-price-sub">/ объявление</span>
+                    </div>
+                    <p class="pkg-tagline">Профессиональные фото + мощный текст. Большинство наших клиентов выбирают этот вариант.</p>
+                    <div class="pkg-divider"></div>
+                    <div class="pkg-features">
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Профессиональная фотосъёмка (до 20 фото)</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Постобработка и ретушь снимков</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Продающий текст объявления</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Оптимизация под Авито / ЦИАН / Яндекс</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Срок выполнения — 48 часов</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>2 правки включены</span></div>
+                        <div class="pkg-feature"><span class="pkg-cross">✗</span><span style="color:var(--text3)">Видеоролик</span></div>
+                    </div>
+                    <a href="#cta" class="pkg-cta">Выбрать основной</a>
+                </div>
+                <!-- Full -->
+                <div class="pkg-card reveal reveal-delay-3">
+                    <div class="pkg-name-label">Полный</div>
+                    <div class="pkg-name">Полный</div>
+                    <div class="pkg-price">
+                        <span class="pkg-price-num">5&nbsp;000</span>
+                        <span class="pkg-price-cur">₽</span>
+                        <span class="pkg-price-sub">/ объявление</span>
+                    </div>
+                    <p class="pkg-tagline">Всё включено: фото, видео и текст. Максимальный результат для быстрой продажи.</p>
+                    <div class="pkg-divider"></div>
+                    <div class="pkg-features">
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Профессиональная фотосъёмка (до 30 фото)</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Видеоролик до 60 секунд</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Постобработка фото и монтаж видео</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Продающий текст объявления</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Оптимизация под все платформы</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>Срок выполнения — 72 часа</span></div>
+                        <div class="pkg-feature"><span class="pkg-check">✓</span><span>3 правки включены + приоритетная поддержка</span></div>
+                    </div>
+                    <a href="#cta" class="pkg-cta">Выбрать полный</a>
+                </div>
+            </div>
+            <div class="pkg-savings reveal">
+                <p>💡 <strong>Сравните с реальностью:</strong> объявление с профессиональными фото получает в 3 раза больше звонков. Один дополнительный покупатель создаёт конкуренцию и <strong>поднимает итоговую цену на 50–200 тыс. рублей.</strong> Наши услуги — это инвестиция, которая окупается многократно.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="label">Как мы работаем</p>
+                <h2 class="display display-md">Просто и <em>быстро</em></h2>
+                <p class="body-md">Четыре шага — и ваше объявление готово привлекать покупателей.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="process-num-wrap">1</div>
+                    <h4>Заявка</h4>
+                    <p>Оставляете заявку, указываете пакет и адрес объекта. Никаких лишних документов.</p>
+                </div>
+                <div class="process-step reveal reveal-delay-1">
+                    <div class="process-num-wrap">2</div>
+                    <h4>Съёмка или бриф</h4>
+                    <p>Выезжаем на объект или вы отвечаете на 5 вопросов о квартире — всё удалённо.</p>
+                </div>
+                <div class="process-step reveal reveal-delay-2">
+                    <div class="process-num-wrap">3</div>
+                    <h4>Обработка</h4>
+                    <p>Ретушируем фото, монтируем видео, пишем текст. Строго в оговорённые сроки.</p>
+                </div>
+                <div class="process-step reveal reveal-delay-3">
+                    <div class="process-num-wrap">4</div>
+                    <h4>Готово!</h4>
+                    <p>Получаете файлы и текст. Публикуете на любой платформе и ждёте звонков.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section why-section" id="why">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-text reveal">
+                    <p class="label">Почему VIZORA</p>
+                    <h2 class="display display-md">Чем мы<br><em>лучше</em><br>конкурентов</h2>
+                    <p class="body-lg">Мы не просто фотографируем квартиру — мы создаём образ, который влюбляет покупателя с первого взгляда.</p>
+                    <p class="body-md">Большинство продавцов снимают телефоном при плохом освещении, а тексты копируют шаблоны. Покупатели это чувствуют — и листают дальше. Мы знаем, как это исправить.</p>
+                    <div class="why-number-grid">
+                        <div class="why-number">
+                            <h3>3×</h3>
+                            <p>Больше просмотров у объявлений с нашими фото</p>
+                        </div>
+                        <div class="why-number">
+                            <h3>47%</h3>
+                            <p>Быстрее закрываются сделки после нашего оформления</p>
+                        </div>
+                        <div class="why-number">
+                            <h3>200+</h3>
+                            <p>Объявлений оформлено за 2 года работы</p>
+                        </div>
+                        <div class="why-number">
+                            <h3>98%</h3>
+                            <p>Клиентов рекомендуют нас друзьям и риэлторам</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-cards reveal reveal-delay-2">
+                    <div class="why-card">
+                        <span class="why-card-icon">⚡</span>
+                        <h4>Быстрый результат</h4>
+                        <p>Базовый пакет — 24 часа. Полный пакет — 72 часа. Без лишних согласований.</p>
+                    </div>
+                    <div class="why-card">
+                        <span class="why-card-icon">🎯</span>
+                        <h4>Знаем рынок</h4>
+                        <p>Понимаем, что ищут покупатели на Авито, ЦИАН и Яндекс.Недвижимости.</p>
+                    </div>
+                    <div class="why-card">
+                        <span class="why-card-icon">✏️</span>
+                        <h4>Правки включены</h4>
+                        <p>Не нравится результат — дорабатываем. Вы платите за удовольствие, не за попытки.</p>
+                    </div>
+                    <div class="why-card">
+                        <span class="why-card-icon">🔒</span>
+                        <h4>Фиксированная цена</h4>
+                        <p>Никаких скрытых доплат. Цена пакета — это итоговая сумма.</p>
+                    </div>
+                    <div class="why-card accent">
+                        <span class="why-card-icon">💰</span>
+                        <h4>Инвестиция, которая окупается</h4>
+                        <p>Конкуренция среди покупателей поднимает цену на 50–200 тыс. ₽. Наши услуги стоят от 1 000 ₽ — соотношение говорит само за себя.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="label">Галерея работ</p>
+                <h2 class="display display-md">Примеры наших <em>фото</em></h2>
+                <p class="body-md">Кликните на фото, чтобы посмотреть в полном размере.</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item reveal" data-gallery-img="after1.jpg" onclick="openLightbox(0)">
+                    <img src="after1.jpg" alt="Ванная комната" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Ванная комната</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+                <div class="gallery-item reveal reveal-delay-1" data-gallery-img="after2.jpg" onclick="openLightbox(1)">
+                    <img src="after2.jpg" alt="Гостиная" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Гостиная</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+                <div class="gallery-item reveal reveal-delay-2" data-gallery-img="after3.jpg" onclick="openLightbox(2)">
+                    <img src="after3.jpg" alt="Прихожая" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Прихожая</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+                <div class="gallery-item reveal" data-gallery-img="after4.jpg" onclick="openLightbox(3)">
+                    <img src="after4.jpg" alt="Коридор" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Коридор</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+                <div class="gallery-item reveal reveal-delay-1" data-gallery-img="after5.jpg" onclick="openLightbox(4)">
+                    <img src="after5.jpg" alt="Спальня" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Спальня</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+                <div class="gallery-item reveal reveal-delay-2" data-gallery-img="after6.jpg" onclick="openLightbox(5)">
+                    <img src="after6.jpg" alt="Санузел" loading="lazy">
+                    <div class="gallery-item-overlay"><span class="gallery-item-label">Санузел</span></div>
+                    <div class="gallery-expand-icon">⊕</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="label">Отзывы клиентов</p>
+                <h2 class="display display-md">Что говорят<br><em>наши клиенты</em></h2>
+                <p class="body-md">Реальные истории людей, которые продали быстрее и дороже с VIZORA.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testi-card reveal">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">«Продавала трёшку полгода без результата. Заказала основной пакет — через 10 дней нашёлся покупатель. Говорит, что именно фото зацепили. Цена выросла на 120 тысяч благодаря торгу между двумя претендентами.»</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">НА</div>
+                        <div>
+                            <div class="testi-author-name">Наталья А.</div>
+                            <div class="testi-author-meta">Продажа 3-комн. квартиры, Москва</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal reveal-delay-1">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">«Как риэлтор работаю с VIZORA уже год. Все объявления с их фото висят не больше двух недель. Клиенты сами говорят: "нашли по фото, хотим именно это". Рекомендую коллегам без раздумий.»</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">ДК</div>
+                        <div>
+                            <div class="testi-author-name">Дмитрий К.</div>
+                            <div class="testi-author-meta">Риэлтор, 12 лет опыта</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal reveal-delay-2">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">«Взял полный пакет. Видео набрало 3000 просмотров за день на Авито. Квартиру продал за 4 дня — при том, что рядом висят похожие уже месяцами. Стоимость пакета — это ничто по сравнению с экономией времени.»</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">АВ</div>
+                        <div>
+                            <div class="testi-author-name">Алексей В.</div>
+                            <div class="testi-author-meta">Продажа 2-комн. квартиры, СПб</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="faq-layout">
+                <div class="reveal">
+                    <p class="label">Вопросы и ответы</p>
+                    <h2 class="display display-sm">Есть<br><em>вопросы?</em></h2>
+                    <p class="body-md" style="margin-top:14px">Здесь — самые частые. Не нашли ответ — напишите нам.</p>
+                    <a href="#cta" class="btn btn-primary" style="margin-top:26px; display:inline-flex">Написать нам</a>
+                </div>
+                <div class="faq-list reveal reveal-delay-2">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Нужно ли мне присутствовать на съёмке?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Для базового пакета — нет, всё удалённо. Для основного и полного — желательно, чтобы вы открыли квартиру. Сама съёмка занимает 1–2 часа.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Квартира не отремонтирована — всё равно поможете?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Да! Профессиональный свет, правильные ракурсы и постобработка делают чудеса. Мы умеем подчеркнуть плюсы любого жилья — даже без дорогостоящего ремонта.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Я нахожусь в другом городе. Можно работать удалённо?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Базовый пакет — полностью удалённо. Для фотосъёмки потребуется физическое присутствие нашего фотографа или вы присылаете свои фото — мы профессионально их обработаем. Уточните при заявке.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Под какие платформы подходит оформление?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Авито, ЦИАН, Яндекс.Недвижимость, Домофонд, Домклик и любые другие. Текст и фото универсальны — публикуйте где угодно.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Что если результат мне не понравится?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Каждый пакет включает 2–3 правки. Если после них результат всё равно не устраивает — возвращаем деньги. Для нас важна ваша репутация и наша репутация.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Как быстро вы делаете работу?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Базовый — 24 часа. Основной — 48 часов. Полный — 72 часа. Отсчёт идёт с момента проведения съёмки или получения материалов. Срочные заказы обсуждаются отдельно.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Работаете ли вы с новостройками и коммерческой недвижимостью?
+                            <span class="faq-arrow">+</span>
+                        </button>
+                        <div class="faq-answer">Да, работаем с квартирами, апартаментами, домами, офисами и торговыми площадями. Стоимость может отличаться — напишите нам для расчёта.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="cta">
+        <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;">
+            <p class="label" style="color:#D8A960;margin-bottom:14px">Начните прямо сейчас</p>
+            <h2>Готовы продать<br>быстрее и <em>дороже?</em></h2>
+            <p>Оставьте заявку — ответим в течение часа и подберём подходящий пакет под ваш объект.</p>
+            <div class="cta-buttons">
+                <a href="https://t.me/" class="btn-cta" target="_blank" rel="noopener">
+                    ✈ Написать в Telegram
+                </a>
+                <a href="https://wa.me/" class="btn-cta-outline" target="_blank" rel="noopener">
+                    Написать в WhatsApp
+                </a>
+            </div>
+            <p style="margin-top:22px;font-size:0.78rem;color:rgba(244,240,232,0.4)">
+                Или на email: <a href="mailto:hello@vizora.ru" style="color:#D8A960;font-weight:500;">hello@vizora.ru</a>
+            </p>
+        </div>
+        <div class="cta-deco" aria-hidden="true">VIZORA</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="nav-logo">VIZ<span>ORA</span></span>
+                    <p>Профессиональное оформление объявлений о недвижимости. Фото, видео и тексты, которые продают.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Услуги</h5>
+                    <ul>
+                        <li><a href="#packages">Базовый пакет</a></li>
+                        <li><a href="#packages">Основной пакет</a></li>
+                        <li><a href="#packages">Полный пакет</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Компания</h5>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#results">Результаты</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Контакты</h5>
+                    <ul>
+                        <li><a href="https://t.me/" target="_blank" rel="noopener">Telegram</a></li>
+                        <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="mailto:hello@vizora.ru">hello@vizora.ru</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025–2026 VIZORA. Все права защищены.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Telegram">✈</a>
+                    <a href="#" class="footer-social-link" aria-label="ВКонтакте">В</a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram">◈</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()" aria-label="Закрыть просмотр">✕</span>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-nav" id="lightboxPrev" onclick="navigateLightbox(-1)" aria-label="Предыдущее изображение">◂</button>
+            <img id="lightboxImg" src="" alt="Просмотр изображения">
+            <button class="lightbox-nav" id="lightboxNext" onclick="navigateLightbox(1)" aria-label="Следующее изображение">▸</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // === GALLERY IMAGES ARRAY ===
+            const galleryImages = Array.from(document.querySelectorAll('[data-gallery-img]')).map(el => el.getAttribute(
+                'data-gallery-img'));
+            let currentLightboxIndex = 0;
+
+            // === THEME TOGGLE ===
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('vizora-theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            toggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('vizora-theme', next);
+            });
+
+            // === NAV SCROLL ===
+            const nav = document.getElementById('mainNav');
+            const scrollHandler = () => {
+                nav.classList.toggle('scrolled', window.scrollY > 20);
+            };
+            window.addEventListener('scroll', scrollHandler, { passive: true });
+            scrollHandler(); // initial check
+
+            // === MOBILE MENU ===
+            const burger = document.getElementById('navBurger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            let menuOpen = false;
+
+            function openMobile() {
+                menuOpen = true;
+                mobileMenu.classList.add('open');
+                burger.classList.add('active');
+                burger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobile() {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+                burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            burger.addEventListener('click', () => {
+                menuOpen ? closeMobile() : openMobile();
+            });
+            // Close on escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && menuOpen) closeMobile();
+            });
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (menuOpen && !mobileMenu.contains(e.target) && !burger.contains(e.target)) {
+                    closeMobile();
+                }
+            });
+            window.closeMobile = closeMobile; // expose for inline onclick
+
+            // === COMPARISON SLIDERS ===
+            document.querySelectorAll('[data-comp]').forEach(wrapper => {
+                const afterImg = wrapper.querySelector('.comp-img.after');
+                const divider = wrapper.querySelector('.comp-divider');
+                const handle = wrapper.querySelector('.comp-handle');
+                let active = false;
+
+                function update(clientX) {
+                    const rect = wrapper.getBoundingClientRect();
+                    let pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+                    const px = pct * 100;
+                    afterImg.style.clipPath = `inset(0 ${100 - px}% 0 0)`;
+                    divider.style.left = px + '%';
+                    handle.style.left = px + '%';
+                }
+
+                function onStart(e) {
+                    active = true;
+                    wrapper.style.cursor = 'ew-resize';
+                    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                    update(clientX);
+                }
+
+                function onMove(e) {
+                    if (!active) return;
+                    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                    update(clientX);
+                }
+
+                function onEnd() {
+                    active = false;
+                    wrapper.style.cursor = 'ew-resize';
+                }
+
+                wrapper.addEventListener('mousedown', onStart);
+                window.addEventListener('mousemove', onMove);
+                window.addEventListener('mouseup', onEnd);
+                wrapper.addEventListener('touchstart', onStart, { passive: false });
+                window.addEventListener('touchmove', onMove, { passive: false });
+                window.addEventListener('touchend', onEnd);
+                wrapper.addEventListener('dragstart', (e) => e.preventDefault());
+            });
+
+            // === SCROLL REVEAL ===
+            const reveals = document.querySelectorAll('.reveal');
+            const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -30px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            reveals.forEach(el => observer.observe(el));
+
+            // === FAQ ===
+            window.toggleFaq = function(btn) {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                // Close all others
+                document.querySelectorAll('.faq-item.open').forEach(i => {
+                    if (i !== item) {
+                        i.classList.remove('open');
+                        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+                if (isOpen) {
+                    item.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            };
+
+            // === LIGHTBOX ===
+            window.openLightbox = function(index) {
+                if (galleryImages.length === 0) return;
+                currentLightboxIndex = (index + galleryImages.length) % galleryImages.length;
+                updateLightboxImage();
+                document.getElementById('lightbox').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeLightbox = function() {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            window.navigateLightbox = function(direction) {
+                if (galleryImages.length === 0) return;
+                currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages
+                    .length;
+                updateLightboxImage();
+            };
+
+            function updateLightboxImage() {
+                document.getElementById('lightboxImg').src = galleryImages[currentLightboxIndex];
+                document.getElementById('lightboxImg').alt = 'Изображение ' + (currentLightboxIndex + 1) + ' из ' +
+                    galleryImages.length;
+            }
+
+            document.addEventListener('keydown', (e) => {
+                const lb = document.getElementById('lightbox');
+                if (!lb.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            });
+
+            // === CURSOR GLOW (desktop) ===
+            const cursorGlow = document.getElementById('cursorGlow');
+            if (cursorGlow && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                let glowTimeout;
+                document.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.left = e.clientX + 'px';
+                    cursorGlow.style.top = e.clientY + 'px';
+                    cursorGlow.classList.add('visible');
+                    clearTimeout(glowTimeout);
+                    glowTimeout = setTimeout(() => cursorGlow.classList.remove('visible'), 1500);
+                }, { passive: true });
+                document.addEventListener('mouseleave', () => cursorGlow.classList.remove('visible'));
+            }
+
+            // === INITIAL HERO CHECK ===
+            scrollHandler();
+        })();
+    </script>
+</body>
+</html>
