@@ -1,0 +1,21 @@
+{
+  "name": "blockworld",
+  "version": "1.0.0",
+  "description": "BlockWorld — original voxel sandbox game",
+  "main": "main.js",
+  "author": "Vizora",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "web": "node server.js",
+    "postinstall": "node -e \"try{require('fs').accessSync('node_modules/electron')}catch(e){console.log('Note: electron binary missing — use npm run web')}\""
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0"
+  },
+  "optionalDependencies": {}
+}
