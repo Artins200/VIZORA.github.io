@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:;" />
+  <title>BlockWorld</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div id="loading">
+    <div class="logo">BLOCKWORLD</div>
+    <div class="bar"><div id="load-fill"></div></div>
+    <div id="load-text">Загрузка мира…</div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair">+</div>
+    <div id="hotbar"></div>
+    <div id="info">
+      <span id="fps">60 FPS</span>
+      <span id="coords">0 0 0</span>
+      <span id="chunk-info">chunks: 0</span>
+    </div>
+    <div id="hint">ЛКМ — ломать · ПКМ — ставить · 1–9 — слот · Esc — меню · F3 — отладка</div>
+  </div>
+
+  <div id="menu" class="hidden">
+    <div class="panel">
+      <h1>BLOCKWORLD</h1>
+      <p class="sub">Оригинальный воксельный sandbox</p>
+      <button id="btn-resume" class="btn primary">Продолжить</button>
+      <button id="btn-new" class="btn">Новый мир</button>
+      <div class="settings">
+        <label>Дальность прорисовки
+          <input type="range" id="opt-render" min="4" max="12" value="8" />
+          <span id="opt-render-val">8</span>
+        </label>
+        <label>Чувствительность мыши
+          <input type="range" id="opt-sens" min="1" max="20" value="8" />
+          <span id="opt-sens-val">0.8</span>
+        </label>
+        <label class="check"><input type="checkbox" id="opt-shadows" checked /> Мягкие тени</label>
+        <label class="check"><input type="checkbox" id="opt-fog" checked /> Туман (оптимизация)</label>
+      </div>
+      <p class="legal">Все блоки, текстуры и механики — оригинальные.<br/>Не связано с Minecraft® / Mojang / Microsoft.</p>
+    </div>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./node_modules/three/build/three.module.js",
+      "three/addons/": "./node_modules/three/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
